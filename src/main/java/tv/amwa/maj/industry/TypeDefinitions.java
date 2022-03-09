@@ -128,6 +128,7 @@ import tv.amwa.maj.meta.impl.TypeDefinitionSetImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionStreamImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionStringImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionStrongObjectReferenceImpl;
+import tv.amwa.maj.meta.impl.TypeDefinitionUtf8Impl;
 import tv.amwa.maj.meta.impl.TypeDefinitionVariableArrayImpl;
 import tv.amwa.maj.meta.impl.TypeDefinitionWeakObjectReferenceImpl;
 import tv.amwa.maj.model.Component;
@@ -171,6 +172,7 @@ import tv.amwa.maj.model.impl.SourceReferenceSegmentImpl;
 import tv.amwa.maj.model.impl.SubDescriptorImpl;
 import tv.amwa.maj.model.impl.TaggedValueDefinitionImpl;
 import tv.amwa.maj.model.impl.TaggedValueImpl;
+import tv.amwa.maj.model.impl.TextBasedObjectImpl;
 import tv.amwa.maj.model.impl.TrackImpl;
 import tv.amwa.maj.record.AUID;
 import tv.amwa.maj.record.DateStruct;
@@ -934,6 +936,12 @@ public interface TypeDefinitions {
 			new AUIDImpl(0x01100200, (short) 0x0000, (short) 0x0000,
 					new byte[] {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x04, 0x01, 0x01} ),
 			"ASCIIString",
+			TypeDefinitions.Character);
+
+	public final static TypeDefinitionString UTF8String = new TypeDefinitionUtf8Impl(
+			new AUIDImpl(0x01100600, (short) 0x0000, (short) 0x0000,
+					new byte[] {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x04, 0x01, 0x01} ),
+			"UTF8String",
 			TypeDefinitions.Character);
 
 	/**
@@ -2901,7 +2909,12 @@ public interface TypeDefinitions {
 				"AS07DMSIdentifierStrongReferenceVector",
 				AS07DMSIdentifierStrongReference);
 	
-
+	public static final TypeDefinitionStrongObjectReference TextBasedObjectStrongReference =
+			new TypeDefinitionStrongObjectReferenceImpl(
+					new AUIDImpl(0x05022a00, (short) 0x0000, (short) 0x0000,
+							new byte[] {0x06, 0x0E, 0x2B, 0x34, 0x01, 0x04, 0x01, 0x01}),
+					"TextBasedObjectStrongReference",
+					Warehouse.lookForClass(TextBasedObjectImpl.class));
 	/**
 	 * <p>Define the type for a value that represents a list of strong references to
 	 * {@linkplain tv.amwa.maj.model.DescriptiveObject descriptive object} with

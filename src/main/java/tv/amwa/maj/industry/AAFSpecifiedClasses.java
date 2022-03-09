@@ -218,7 +218,11 @@ public interface AAFSpecifiedClasses {
 		ApplicationPluginObjectImpl.class,
 		ApplicationReferencedObjectImpl.class,
 		AVCSubDescriptorImpl.class,
-		JPEG2000SubDescriptorImpl.class
+		JPEG2000SubDescriptorImpl.class,
+		TextBasedFrameworkImpl.class,
+		TextBasedObjectImpl.class,
+		UTF8TextBasedSetImpl.class,
+		AS11SegmentationFrameworkImpl.class
 	};
 	
 	/**

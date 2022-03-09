@@ -162,6 +162,10 @@ public class PrefaceImpl
 		Collections.synchronizedSet(new HashSet<AUID>());
 	private Set<AUID> applicationSchemes =
 		Collections.synchronizedSet(new HashSet<AUID>());
+
+	private Set<AUID> specificationIdentifiers =
+		Collections.synchronizedSet(new HashSet<AUID>());
+	
 	private ContentStorage contentStorageObject;
 	private List<Identification> identificationList =
 		Collections.synchronizedList(new Vector<Identification>());
@@ -336,6 +340,40 @@ public class PrefaceImpl
 			throw new NullPointerException("Cannot set the content for this header to null.");
 		
 		this.contentStorageObject = contentStorageObject;
+	}
+	@MediaProperty(uuid1 = 0x0d010801, uuid2 = (short) 0x0101, uuid3 = (short) 0x0000,
+			uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x01},
+			definedName = "SpecificationIdentifiers",
+			aliases = {  },
+			typeName = "AUIDSet",
+			optional = true,
+			uniqueIdentifier = false,
+			symbol = "SpecificationIdentifiers")
+	public Set<AUID> getSpecificationIdentifiers() {
+
+		return new HashSet<tv.amwa.maj.record.AUID>(specificationIdentifiers);
+	}
+
+	@MediaPropertySetter("SpecificationIdentifiers")
+	public void setSpecificationIdentifiers(
+			Set<AUID> specificationIdentifiers) 
+		{
+		if(specificationIdentifiers == null) return;
+		this.specificationIdentifiers = specificationIdentifiers;
+		
+	}
+
+	@MediaSetAdd("SpecificationIdentifiers")
+	public void addSpecificationIdentifiers(
+			AUID specificationIdentifier) 
+		{
+		specificationIdentifiers.add(specificationIdentifier.clone());
+	}
+	
+	@MediaPropertyCount("SpecificationIdentifiers")
+	public int countSpecificationIdentifiers() {
+
+		return this.specificationIdentifiers.size();
 	}
 	
 	public final static ContentStorage initializeContentStorageObject() {

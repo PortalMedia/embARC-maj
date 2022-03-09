@@ -304,7 +304,7 @@ public class JPEG2000SubDescriptorImpl
 			short cSiz)
 		throws NullPointerException {
 
-		if (ytoSiz < 0)
+		if (cSiz < 0)
 			throw new NullPointerException("Cannot set the value of the mime type of this auxiliary descriptor using a null value.");
 		
 		this.cSiz = cSiz;

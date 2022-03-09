@@ -360,7 +360,6 @@ public class PrimerPackImpl
 
 		ClassDefinition objectsClass = MediaEngine.getClassDefinition(mdObject);
 		long setLength = MXFBuilder.lengthOfLocalSet(mdObject) + 20l; // Bytes in value plus initial class ID and 4-byte length
-
 		for ( PropertyDefinition propertyDefinition : objectsClass.getAllPropertyDefinitions() ) {
 
 			PropertyValue propertyValue = null;
@@ -382,9 +381,15 @@ public class PrimerPackImpl
 			switch (propertyType.getTypeCategory()) {
 
 			case StrongObjRef:
+				if(propertyType.getAUID().toString().contains("20300")) {
+					int g = 0;
+				}
 				if (propertyValue == null)
 					propertyValue = propertyDefinition.getPropertyValue(mdObject);
 				MetadataObject stronglyReferencedObject = (MetadataObject) propertyValue.getValue();
+				if (stronglyReferencedObject ==  null) {
+					int p = 0;
+				}
 				setLength += addPropertiesForObject(primerPack, stronglyReferencedObject);
 				break;
 			case Set:
@@ -394,8 +399,9 @@ public class PrimerPackImpl
 
 				if (setElementType instanceof TypeDefinitionStrongObjectReference) {
 					Set<?> setValues = (Set<?>) propertyValue.getValue();
-					for ( Object value : setValues )
+					for ( Object value : setValues ) {
 						setLength += addPropertiesForObject(primerPack, (MetadataObject) value);
+					}
 				}
 				break;
 			case VariableArray:

@@ -396,6 +396,7 @@ public final class ClassDefinitionImpl
 				return (MetadataObject) javaImplementation.newInstance();
 		}
 		catch (Exception iae) {
+			iae.printStackTrace(System.err);
 			return null;
 		}
 		

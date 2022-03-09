@@ -15,7 +15,7 @@ import tv.amwa.maj.industry.MediaPropertySetter;
 import tv.amwa.maj.industry.StrongReferenceVector;
 import tv.amwa.maj.model.AS07GSPDMSObject;
 import tv.amwa.maj.record.AUID;
-//060E2B34 02530101 0D0E0101 07010400
+
 @MediaClass(uuid1 = 0x0d0e0101, uuid2 = 0x0701, uuid3 = 0x0400,
 uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x02, 0x06, 0x01, 0x01},
 definedName = "AS07GSPDMSObject",
@@ -25,15 +25,13 @@ symbol = "AS07GSPDMSObject")
 public class AS07GSPDMSObjectImpl 
 
 extends
-InterchangeObjectImpl
+TextBasedObjectImpl
 implements
-	Cloneable,
 	Serializable ,
 AS07GSPDMSObject{
 
 	private static final long serialVersionUID = 145566436L;
 
-	private AUID textBasedMetadataPayloadSchemeIdentifier = null;
 	private String rfc5646TextLanguageCode = null;
 	private String mimeMediaType = null;
 	private String textMimeMediaType = null;
@@ -42,30 +40,6 @@ AS07GSPDMSObject{
 	private String note = null;
 	private int genericStreamId;
 	private List<AS07DMSIdentifierSetImpl> identifiers = Collections.synchronizedList(new ArrayList<AS07DMSIdentifierSetImpl>());;
-	
-	//060E2B34 0101010D 04060806 00000000
-	@MediaProperty(uuid1 = 0x04060806, uuid2 = 0x0000, uuid3 = 0x0000,
-			  uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x01, 0x01, 0x01, 0x0d},
-			definedName = "TextBasedMetadataPayloadSchemeIdentifier",
-			aliases = {  },
-			typeName = "AUID",
-			optional = false,
-			uniqueIdentifier = false,
-			symbol = "TextBasedMetadataPayloadSchemeIdentifier")
-	public AUID getTextBasedMetadataPayloadSchemeIdentifier() 
-		throws PropertyNotPresentException {
-
-		if (textBasedMetadataPayloadSchemeIdentifier == null)
-			throw new PropertyNotPresentException("TextBasedMetadataPayloadSchemeIdentifier property is not present.");
-		
-		return textBasedMetadataPayloadSchemeIdentifier;
-	}
-	@MediaPropertySetter("TextBasedMetadataPayloadSchemeIdentifier")
-	public void setTextBasedMetadataPayloadSchemeIdentifier(
-			AUID textBasedMetadataPayloadSchemeIdentifier) {
-
-		this.textBasedMetadataPayloadSchemeIdentifier = textBasedMetadataPayloadSchemeIdentifier;
-	}
 	
 
 	//060E2B34 0101010D 03010102 02140000
@@ -292,9 +266,4 @@ AS07GSPDMSObject{
 
 		return identifiers.size();
 	}
-
-    public AS07GSPDMSObject clone() {
-
-        return (AS07GSPDMSObject) super.clone();
-    }
 }

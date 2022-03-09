@@ -423,7 +423,7 @@ public class MXFBuilder {
 
 		int preserveLimit = buffer.limit();
 
-		if(key.toString().equals("urn:smpte:ul:060e2b34.02060101.0d010101.01015a00")) {
+		if(key.toString().equals("urn:smpte:ul:060e2b34.02530101.0d010401.04020200")) {
 			System.out.println("Here");
 		}
 		ClassDefinition localSetClass = ClassDefinitionImpl.forAUID(key);
@@ -464,7 +464,7 @@ public class MXFBuilder {
 			PropertyDefinition property = null;
 			AUID propertyKey = null;
 			short tag = buffer.getShort();
-			if(tag == 32801) {
+			if(tag == -8195) {
 				int i =0;
 			}
 			int length = 0;

@@ -34,7 +34,7 @@ public class AS07CoreDMSFrameworkImpl
 	private String pictureFormat = null;
 	private String captions = null;
 	private AUID audioTrackLayout = null;
-	private String intendedAFD = null;
+	private String intendedAFD = "";
 	private List<AS07DMSIdentifierSetImpl> identifiers = null;
 	private List<AS07CoreDMSDeviceObjectsImpl> devices = Collections.synchronizedList(new ArrayList<AS07CoreDMSDeviceObjectsImpl>());
 	private String audioTrackLayoutComment = null;
@@ -336,6 +336,9 @@ public class AS07CoreDMSFrameworkImpl
 	public String getIntendedAFD() 
 		throws PropertyNotPresentException {
 
+		if(intendedAFD == null) {
+			//throw new PropertyNotPresentException("IntendedAFD is not present");
+		}
 		return intendedAFD;
 	}
 	
