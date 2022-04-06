@@ -20,7 +20,7 @@ import tv.amwa.maj.model.AS07DMSIdentifierSet;
 import tv.amwa.maj.model.AS07GSPDMSObject;
 import tv.amwa.maj.model.AS07TimecodeLabelSubdescriptor;
 import tv.amwa.maj.record.AUID;
-//060E2B34 02530101 0D0E0101 07010400
+
 @MediaClass(uuid1 = 0x0d0e0101, uuid2 = 0x0704, uuid3 = 0x0100,
 uuid4 = {0x06, 0x0e, 0x2b, 0x34, 0x02, 0x06, 0x01, 0x01},
 definedName = "AS07TimecodeLabelSubdescriptor",

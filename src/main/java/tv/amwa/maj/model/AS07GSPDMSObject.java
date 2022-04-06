@@ -14,18 +14,14 @@ import tv.amwa.maj.industry.MetadataObject;
 import tv.amwa.maj.industry.WeakReferenceTarget;
 import tv.amwa.maj.model.impl.AS07DMSIdentifierSetImpl;
 import tv.amwa.maj.model.impl.InterchangeObjectImpl;
+import tv.amwa.maj.model.impl.TextBasedObject;
 import tv.amwa.maj.record.AUID;
 
 public interface AS07GSPDMSObject 
 extends
-InterchangeObject,
+TextBasedObject,
 Cloneable,
 Serializable{
-
-	//060E2B34 0101010D 04060806 00000000
-	AUID getTextBasedMetadataPayloadSchemeIdentifier() throws PropertyNotPresentException;
-
-	void setTextBasedMetadataPayloadSchemeIdentifier(AUID textBasedMetadataPayloadSchemeIdentifier);
 
 	//060E2B34 0101010D 04060806 00000000
 	String getRfc5646TextLanguageCode() throws PropertyNotPresentException;
